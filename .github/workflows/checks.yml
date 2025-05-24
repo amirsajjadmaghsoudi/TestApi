@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Login to the Docker Hub 
-        uses: docker/logn-action@v1
+        uses: docker/login-action@v1
         with: 
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOKCERHUB_TOKKEN }}
