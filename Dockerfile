@@ -2,7 +2,6 @@ FROM python:3.10
 
 LABEL maintainer="amirsajjad_maghsoudi"
 
-# تنظیم متغیر محیطی برای عدم بافر خروجی پایتون
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
@@ -12,9 +11,7 @@ COPY requirements.txt .
 COPY requirements.dev.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# کپی کردن سورس پروژه
 COPY . .
-
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
@@ -30,9 +27,6 @@ RUN python -m venv /py && \
 
 ENV PATH="/py/bin:$PATH"
 
-
-
 USER django-user
 
 EXPOSE 8000
-
